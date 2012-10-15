@@ -24,7 +24,7 @@ include(UseQt4)
 set(CMAKE_AUTOMOC TRUE)
 
 set(PROJECT_VERSION_MAJOR "0")
-set(PROJECT_VERSION_MINOR "1")
+set(PROJECT_VERSION_MINOR "2")
 set(PROJECT_VERSION_PATCH "0")
 set(PROJECT_VERSION_COUNT 3)
 set(PROJECT_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
@@ -46,7 +46,11 @@ set(ICONS_DIR "${${PROJECT_NAME}_SOURCE_DIR}/gui/images/icons")
 
 add_definitions(-DPROJECT_VERSION=\"${PROJECT_VERSION}\")
 
-set(SOURCES
+set(CLI_SOURCES
+    cli/main.cpp
+)
+
+set(GUI_SOURCES
     gui/main.cpp
 )
 
@@ -55,8 +59,10 @@ if(MSVC)
 endif()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
-add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE ${SOURCES} ${MOC_SOURCES})
-target_link_libraries(${PROJECT_NAME} ${QT_LIBRARIES})
+add_executable(gui WIN32 MACOSX_BUNDLE ${GUI_SOURCES} ${MOC_SOURCES})
+add_executable(cli WIN32 MACOSX_BUNDLE ${CLI_SOURCES} ${MOC_SOURCES})
+target_link_libraries(gui ${QT_LIBRARIES})
+target_link_libraries(cli ${QT_LIBRARIES})
 
 set(CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION "${BIN_INSTALL_DIR}")
 include(InstallRequiredSystemLibraries)
@@ -71,7 +77,8 @@ if(DOXYGEN_FOUND)
 endif(DOXYGEN_FOUND)
 
 message(STATUS "${PROJECT_NAME} will be installed to ${CMAKE_INSTALL_PREFIX}")
-install(TARGETS ${PROJECT_NAME} DESTINATION ${BIN_INSTALL_DIR})
+install(TARGETS gui DESTINATION ${BIN_INSTALL_DIR})
+install(TARGETS cli DESTINATION ${BIN_INSTALL_DIR})
 
 set(LICENSE_FILE "docs/LICENSE.txt")
 set(README_FILE "README.md")
@@ -138,3 +145,7 @@ if(APPLE OR WIN32)
     include(DeployQt4)
     install_qt4_executable("${EXECUTABLE}")
 endif()
+
+add_custom_target(RELEASE
+    COMMENT "Place actual REPLACE target here."
+)
