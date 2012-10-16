@@ -8,6 +8,5 @@ endif()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
 add_executable(server WIN32 MACOSX_BUNDLE ${SOURCES} ${MOC_SOURCES})
-target_link_libraries(server ${QT_LIBRARIES})
 
 install(TARGETS server DESTINATION ${BIN_INSTALL_DIR})

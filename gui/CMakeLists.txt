@@ -1,3 +1,10 @@
+find_package(Qt4 COMPONENTS QtMain QtCore QtGui REQUIRED)
+include(UseQt4)
+if(APPLE OR WIN32)
+    include(DeployQt4)
+    install_qt4_executable("${EXECUTABLE}")
+endif()
+
 set(SOURCES
     main.cpp
 )
