@@ -1,20 +1,11 @@
-find_package(Qt4 COMPONENTS QtMain QtCore QtGui REQUIRED)
-include(UseQt4)
-
-set(SOURCES
-    main.cpp
-)
-
 if(MSVC)
-    list(APPEND RESOURCES_SOURCES ${PROJECT_NAME}.rc)
+    list(APPEND RESOURCES_SOURCES gui.rc)
 endif()
 
+# first we add the executable that generates the table
+add_executable(gui main.cxx ${MOC_SOURCES})
+
+# add the binary tree directory to the search path for include files
 include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
-add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE ${SOURCES} ${MOC_SOURCES})
-target_link_libraries(${PROJECT_NAME} ${QT_LIBRARIES})
 
-install(TARGETS ${PROJECT_NAME} DESTINATION ${BIN_INSTALL_DIR})
-if(APPLE OR WIN32)
-    include(DeployQt4)
-    install_qt4_executable("${EXECUTABLE}")
-endif()
+install (TARGETS gui DESTINATION ${BIN_INSTALL_DIR})
