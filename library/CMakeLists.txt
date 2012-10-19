@@ -1,9 +1,9 @@
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR})
 
 # add the main library
-add_library(library example.cxx)
+add_library(example example.cxx)
 
-install (TARGETS library DESTINATION bin)
+install (TARGETS example DESTINATION bin)
 install (FILES example.h DESTINATION include)
 
 #add the swig exports
@@ -21,16 +21,17 @@ INCLUDE_DIRECTORIES(${PYTHON_INCLUDE_PATH})
 
 SWIG_ADD_MODULE(python python example.i example.cxx)
 SWIG_LINK_LIBRARIES(python ${PYTHON_LIBRARIES})
+SET_TARGET_PROPERTIES(_python PROPERTIES OUTPUT_NAME example_library)
 
 INSTALL(TARGETS _python DESTINATION share/python)
-INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/example.py DESTINATION share/python)
+INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/example_library.py DESTINATION share/python)
 
 FIND_PACKAGE(PerlLibs)
 INCLUDE_DIRECTORIES(${PERL_INCLUDE_PATH})
 
 SWIG_ADD_MODULE(perl perl example.i example.cxx)
 SWIG_LINK_LIBRARIES(perl ${PERL_LIBRARIES})
-SET_TARGET_PROPERTIES(perl PROPERTIES OUTPUT_NAME example)
+SET_TARGET_PROPERTIES(perl PROPERTIES OUTPUT_NAME example_library)
 
 INSTALL(TARGETS perl DESTINATION share/perl)
-INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/example.pm DESTINATION share/perl)
+INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/example_library.pm DESTINATION share/perl)

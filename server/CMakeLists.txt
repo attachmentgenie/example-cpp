@@ -6,7 +6,7 @@ endif()
 add_executable(server main.cxx ${MOC_SOURCES})
 
 include_directories ("${CMAKE_SOURCE_DIR}/library")
-set (EXTRA_LIBS ${EXTRA_LIBS} library)
+set (EXTRA_LIBS ${EXTRA_LIBS} example)
 
 target_link_libraries(server ${EXTRA_LIBS})
 

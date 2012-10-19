@@ -8,7 +8,7 @@ endif()
 add_executable(gui WIN32 MACOSX_BUNDLE main.cxx ${MOC_SOURCES})
 
 include_directories ("${CMAKE_SOURCE_DIR}/library")
-set (EXTRA_LIBS ${EXTRA_LIBS} library)
+set (EXTRA_LIBS ${EXTRA_LIBS} example)
 
 target_link_libraries(gui ${QT_LIBRARIES} ${EXTRA_LIBS})
 
