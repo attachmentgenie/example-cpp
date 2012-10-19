@@ -1,3 +1,9 @@
+# add the main library
+add_library(example example.cxx)
+
+install (TARGETS example DESTINATION bin)
+install (FILES example.h DESTINATION include)
+
 FIND_PACKAGE(SWIG REQUIRED)
 INCLUDE(${SWIG_USE_FILE})
 

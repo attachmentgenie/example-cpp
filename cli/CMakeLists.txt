@@ -5,6 +5,11 @@ endif()
 # first we add the executable that generates the table
 add_executable(cli main.cxx ${MOC_SOURCES})
 
+include_directories ("${CMAKE_SOURCE_DIR}/library")
+set (EXTRA_LIBS ${EXTRA_LIBS} example)
+
+target_link_libraries(cli ${EXTRA_LIBS})
+
 # add the binary tree directory to the search path for include files
 include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
 

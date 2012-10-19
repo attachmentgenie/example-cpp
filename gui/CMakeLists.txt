@@ -6,7 +6,12 @@ if(MSVC)
 endif()
 
 add_executable(gui WIN32 MACOSX_BUNDLE main.cxx ${MOC_SOURCES})
-target_link_libraries(gui ${QT_LIBRARIES})
+
+include_directories ("${CMAKE_SOURCE_DIR}/library")
+set (EXTRA_LIBS ${EXTRA_LIBS} example)
+
+target_link_libraries(gui ${QT_LIBRARIES} ${EXTRA_LIBS})
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
 install(TARGETS gui DESTINATION ${BIN_INSTALL_DIR})
 
