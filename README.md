@@ -10,5 +10,5 @@
 
 ## CMakeLists.txt cache file ##
     BUILD_CLI:BOOL=ON
-    BUILD_GUI:BOOL=OFF
-    BUILD_SERVER:BOOL=OFF
+    BUILD_GUI:BOOL=ON
+    BUILD_SERVER:BOOL=ON
