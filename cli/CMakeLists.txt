@@ -6,7 +6,7 @@ endif()
 add_executable(cli main.cxx ${MOC_SOURCES})
 
 include_directories ("${CMAKE_SOURCE_DIR}/library")
-set (EXTRA_LIBS ${EXTRA_LIBS} example)
+set (EXTRA_LIBS ${EXTRA_LIBS} library)
 
 target_link_libraries(cli ${EXTRA_LIBS})
 
