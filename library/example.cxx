@@ -1,9 +1,10 @@
+#include <string>
 #include "example.h"
 
-double mysqrt(double x)
+std::string hello(std::string x)
 {
-	double result;
+	std::string result;
 
-	result = 0.1;
+	result += std::string("Hello world ") + x + std::string("!");
 	return result;
 }
