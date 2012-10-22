@@ -1,5 +1,3 @@
-INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR})
-
 # add the main library
 add_library(example example.cxx)
 
@@ -7,6 +5,8 @@ install (TARGETS example DESTINATION bin)
 install (FILES example.h DESTINATION include)
 
 #add the swig exports
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR})
+
 FIND_PACKAGE(SWIG REQUIRED)
 INCLUDE(${SWIG_USE_FILE})
 
