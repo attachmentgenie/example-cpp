@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	std::string strHelloName = hello("cli");
+    std::string strHelloName = hello("cli");
     cout << strHelloName << endl;
 
     return 0;

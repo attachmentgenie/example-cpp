@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[])
 {
-	std::string strHelloName = hello("gui");
+    std::string strHelloName = hello("gui");
 
     QApplication app(argc, argv);
     QLabel *label = new QLabel(QString::fromStdString(strHelloName));
