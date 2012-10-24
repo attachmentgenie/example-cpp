@@ -50,5 +50,6 @@ add_subdirectory(library)
 if(BUILD_SERVER)
     add_subdirectory(server)
 endif(BUILD_SERVER)
-add_subdirectory(docs) 
+
+add_subdirectory(docs)
 add_subdirectory(installer)
