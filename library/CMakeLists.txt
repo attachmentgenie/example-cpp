@@ -1,5 +1,5 @@
 # add the main library
-add_SWIG_LIBRARY(library example.cxx)
+add_library(library example.cxx)
 
 install (TARGETS library DESTINATION bin)
 install (FILES example.h DESTINATION include)
