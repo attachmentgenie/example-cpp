@@ -1,7 +1,7 @@
 # add the main library
 add_library(library example.cxx)
 
-install (TARGETS library DESTINATION ${BIN_INSTALL_DIR})
+install (TARGETS library DESTINATION ${LIB_INSTALL_DIR})
 install (FILES example.h DESTINATION ${INCLUDE_INSTALL_DIR})
 
 #add the swig exports
