@@ -8,7 +8,7 @@
 - perl
 - C++ compiler
 
-## CMakeLists.txt cache file ##
+## CMakeLists.txt cache file variables ##
 	BUILD_CLI:BOOL=ON
 	BUILD_GUI:BOOL=ON
 	BUILD_SERVER:BOOL=ON

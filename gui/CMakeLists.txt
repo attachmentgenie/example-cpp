@@ -4,7 +4,7 @@ include(UseQt4)
 add_executable(gui WIN32 MACOSX_BUNDLE main.cxx ${MOC_SOURCES})
 
 include_directories ("${CMAKE_SOURCE_DIR}/library")
-target_link_libraries(gui library ${QT_LIBRARIES} ${EXTRA_LIBS})
+target_link_libraries(gui library ${QT_LIBRARIES})
 SET_TARGET_PROPERTIES(gui PROPERTIES OUTPUT_NAME ${PROJECT_NAME})
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
