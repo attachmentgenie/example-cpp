@@ -12,7 +12,7 @@ else()
 endif()
 
 option(BUILD_CLI "Build CLI endpoint" ON)
-option(BUILD_GUI "Build GUI endpoint)" ON)
+option(BUILD_GUI "Build GUI endpoint" ON)
 option(BUILD_SERVER "Build SERVER endpoint" ON)
 
 set(CMAKE_AUTOMOC TRUE)
@@ -30,6 +30,7 @@ set(PROJECT_DOMAIN_FIRST "attachmentgenie")
 set(PROJECT_DOMAIN_SECOND "com")
 set(PROJECT_DOMAIN "${PROJECT_DOMAIN_FIRST}.${PROJECT_DOMAIN_SECOND}")
 
+set(ICONS_DIR "${${PROJECT_NAME}_SOURCE_DIR}/installer/icons")
 if(APPLE)
 	set(CMAKE_INSTALL_PREFIX "/Applications")
 	set(EXECUTABLE "${PROJECT_NAME}.app")
