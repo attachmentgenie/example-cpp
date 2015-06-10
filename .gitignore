@@ -10,3 +10,6 @@ docs/api/
 gui/example
 library/Release/
 server/server
+_CPack_Packages/
+install_manifest.txt
+packages/
