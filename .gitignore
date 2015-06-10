@@ -1,3 +1,12 @@
-/.project
-/.cproject
-/.project
+CMakeCache.txt
+*.a
+*.cmake
+*.so
+*_automoc.cpp
+Makefile
+CMakeFiles/
+cli/cli
+docs/api/
+gui/example
+library/Release/
+server/server

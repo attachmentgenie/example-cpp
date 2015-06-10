@@ -13,12 +13,12 @@ if(APPLE)
 	execute_process(COMMAND ${CMAKE_COMMAND} -E copy_if_different ${MACOSX_BUNDLE_ICON} ${MACOSX_BUNDLE_RESOURCES})
 endif()
 
-find_package(Qt4 COMPONENTS QtMain QtCore QtGui REQUIRED)
-include(UseQt4)
+find_package(Qt5Widgets REQUIRED)
 
 add_executable(gui WIN32 MACOSX_BUNDLE main.cxx ${MOC_SOURCES})
 
 include_directories ("${CMAKE_SOURCE_DIR}/library")
+qt5_use_modules(gui Widgets)
 target_link_libraries(gui library ${QT_LIBRARIES})
 SET_TARGET_PROPERTIES(gui PROPERTIES OUTPUT_NAME ${PROJECT_NAME})
 
